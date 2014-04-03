@@ -201,6 +201,50 @@ onload = function () {document.getElementById("nom").focus();}
 break;
 
 
+case 4: ?>
+<h1>Étape 4</h1>
+Passons au formulaire de connexion. <br>
+Ce coup-ci, l’être malfaisant cherche à se connecter avant de faire le mal. <br>
+<br>
+Votre <strong>quatrième mission</strong> consistera à, sans forcément utiliser
+le nom d’un utilisateur existant, <br>
+juste par <a href="http://gizmodo.com/5498412/sql-injection-license-plate-hopes-to-foil-euro-traffic-cameras/all">injection
+SQL</a>, passer ce formulaire (et ainsi aller à l’étape 5). <br>
+<br>
+Notez que dans la vraie vie, le nom d’un utilisateur existant sera nécessaire. <br>
+En effet, il faut bien « emprunter » les droits de quelqu’un. <br>
+Au passage, pour qui peut-il être intéressant de se faire passer ? <br>
+<br>
+Vous n’accèderez à l’étape 5 <strong>que si vous vous faîtes passer pour un
+utilisateur intéressant</strong> ! <br>
+<br>
+<form method ="post" action ="#">
+    <label for="nom">Nom :</label><input type="text" name="nom" id="nom"><br>
+    <label for="mdp">MDP :</label><input type="password" name="mdp" id="mdp"><br>
+    <input type="submit" name="Connexion" value="Connexion">
+</form>
+<script type="text/javascript">
+onload = function () {document.getElementById("nom").focus();}
+</script>
+<?php
+$db = new MyDB();
+if (isset($_POST['Connexion'])) {
+    $result = $db->query("SELECT nom, mdp FROM users WHERE " .
+        "nom='" . $_POST['nom'] . "' AND mdp='" . $_POST['mdp'] . "'");
+    if ($result->fetchArray() !== False) {
+        $comptes_interessants = array('admin', 'root', 'prof');
+        if (in_array($_POST['nom'], $comptes_interessants)) { ?>
+            Très bien, vous pouvez passer à <a href="?etape=5">l’étape 5</a>. <br>
+        <?php
+        } else { ?>
+            Bof, le nom d’utilisateur n’est pas très intéressant.
+        <?php
+        }
+    }
+}
+break;
+
+
 default: ?>
 <h1>Fin</h1>
 Si vous avez des idées pour améliorer cette activité, tant en qualité qu’en
