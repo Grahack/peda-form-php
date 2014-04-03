@@ -68,8 +68,9 @@ case 1: ?>
 <h1>Étape 1</h1>
 <?php
 $db = new MyDB();
-$db->exec('CREATE TABLE users (nom STRING, mdp STRING, desc STRING)');
-$db->exec("INSERT INTO users (nom, mdp, desc) VALUES ('Mme Test', 'mouton', 'Je suis madame Test.')");
+if ($db->exec('CREATE TABLE users (nom STRING, mdp STRING, desc STRING)')) {
+    $db->exec("INSERT INTO users (nom, mdp, desc) VALUES ('Mme Test', 'mouton', 'Je suis madame Test.')");
+}
 $result = $db->query('SELECT desc FROM users');
 if ($result->fetchArray()['desc'] == 'Je suis madame Test.') { ?>
 Bravo, tout s’est bien passé. <br>
