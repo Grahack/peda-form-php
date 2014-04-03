@@ -245,6 +245,44 @@ if (isset($_POST['Connexion'])) {
 break;
 
 
+case 5: ?>
+<h1>Étape 5</h1>
+La <strong>cinquième mission</strong> est encore malfaisante. <br>
+<br>
+Elle consiste à faire tourner un logiciel de force brute contre le formulaire
+d’authentification pour voir en combien de temps le mot de passe de Mme Test
+est découvert. <br>
+<br>
+<form method ="post" action ="#">
+    <label for="nom">Nom :</label><input type="text" name="nom" id="nom"><br>
+    <label for="mdp">MDP :</label><input type="password" name="mdp" id="mdp"><br>
+    <input type="submit" name="Connexion" value="Connexion">
+</form>
+<script type="text/javascript">
+onload = function () {document.getElementById("nom").focus();}
+</script>
+<?php
+$db = new MyDB();
+if (isset($_POST['Connexion'])) {
+    $result = $db->query("SELECT nom, mdp FROM users WHERE " .
+        "nom='" . $_POST['nom'] . "' AND mdp='" . $_POST['mdp'] . "'");
+    if ($_POST['nom'] == 'Mme Test') {
+        if ($result->fetchArray() !== False) { ?>
+            Très bien, vous pouvez passer à <a href="?etape=6">l’étape 6</a>. <br>
+            Que dit le chrono ?
+        <?php
+        } else { ?>
+            Raté.
+        <?php
+        }
+    } else { ?>
+        Il faut voler le compte de Mme Test, de personne d’autre.
+        <?php
+    }
+}
+break;
+
+
 default: ?>
 <h1>Fin</h1>
 Si vous avez des idées pour améliorer cette activité, tant en qualité qu’en
