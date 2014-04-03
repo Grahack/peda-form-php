@@ -1,4 +1,5 @@
 <meta charset="utf-8">
+<link href="style.css" rel="stylesheet"/>
 <?php
 /* Connecteur maison.
  * Crée le fichier contenant la base de données si besoin.
