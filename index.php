@@ -101,5 +101,36 @@ Raté. Veuillez lire et comprendre l’erreur ci-dessus, rectifier et rafraîchi
 }
 break;
 
+
+case 2:
+$db = new MyDB();
+if (isset($_POST['Valider'])) {
+    $db->exec("INSERT INTO users (nom, mdp, desc) VALUES ('".
+        $_POST['nom']."', '".$_POST['mdp']."', '".$_POST['desc']."')");
+}
+?>
+<h1>Étape 2</h1>
+Passons aux choses sérieuses. Voici une liste des utilisateurs du site :
+<ul>
+<?php
+$result = $db->query('SELECT nom, desc FROM users');
+while ($row = $result->fetchArray(SQLITE3_ASSOC)) {
+    echo '    <li>' . $row['nom'] . ' : ' . $row['desc'] . '</li>'."\n";
+}
+?>
+</ul>
+Entrer des utilisateurs en utilisant le formulaire suivant :
+<form method ="post" action ="#">
+    <label for="nom">Nom :</label><input type="text" name="nom" id="nom"><br>
+    <label for="mdp">MDP :</label><input type="password" name="mdp" id="mdp"><br>
+    <label for="nom">Desc :</label><input type="text" name="desc" id="desc"><br>
+    <input type="submit" name="Valider" value="Valider">
+</form>
+<script type="text/javascript">
+onload = function () {document.getElementById("nom").focus();}
+</script>
+<?php
+break;
+
 // Fin du case géant.
 }
