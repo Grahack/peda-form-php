@@ -22,32 +22,38 @@ if (!isset($_GET['etape'])) $_GET['etape'] = 0;
 // Les pages, selon l’étape en cours:
 switch ((int)$_GET['etape']) {
 case 0: ?>
+<h1>Introduction</h1>
 Bonjour&nbsp;! <br>
 <br>
 Ces pages vont vous sensibiliser à la sécurisation des formulaires en PHP. <br>
 Vaste sujet, que nous n’allons pouvoir qu’effleurer. <br>
-Vous serez guidés d’étape en étape à l’aide d’explications et de liens. <br>
-<br>
+Vous serez guidés d’étape en étape à l’aide d’explications et de liens.
+<h1>Étapes et URLs</h1>
 Vous êtes actuellement à l’<strong>étape zéro</strong>, étape par défaut
 configurée à l’aide de la ligne :
 <pre><code>if (!isset($_GET['etape'])) $_GET['etape'] = 0;</code></pre>
 À tout moment, vous pourrez bidouiller l'URL, mais ce n'est pas le but. <br>
 Si par hasard un vrai problème de conception apparaissait, il faudra le
-signaler, bidouiller, et proposer une solution. <br>
-<br>
-Votre <strong>première mission</strong> est d’installer
-<a href="http://sqlite.org">SQLite</a> ainsi que les liens pour PHP. <br>
+signaler, bidouiller, et proposer une solution via Github.
+<h1>C’est parti&nbsp;!</h1>
+Votre <strong>première mission</strong> consiste à vérifier que PHP va pouvoir
+communiquer avec une base <a href="http://sqlite.org">SQLite</a>. <br>
 C’est un SGBD minimal sans serveur, pour lequel les données d’une base sont
 contenues dans un seul fichier. <br>
-Vous devez juste faire en sorte que votre installation de PHP ait accès à la
-classe <code>SQLite3</code>. <br>
-L’étape 1 va vérifier tout cela en tentant de&nbsp;:
+Il suffira dans le meilleur des cas de configurer le serveur (à la souris ou
+en ligne de commande), <br>
+ou dans le pire des cas de l’installer, ainsi que les liens pour PHP. <br>
+<br>
+Le passage à l’étape 1 va vérifier tout cela en tentant de&nbsp;:
 <ol>
     <li>créer un fichier vide,</li>
     <li>passer ce fichier au format SQLite,</li>
     <li>créer les tables et rentrer les données nécessaires pour la suite.</li>
 </ol>
-<a href="?etape=1">Passer à l’étape 1</a>
+SQLite doit donc, en plus de pouvoir modifier le fichier de données, pouvoir
+créer ce fichier. Attention donc aux droits d’accès. <br>
+<br >
+<a href="?etape=1">Mon serveur est prêt, je veux passer à l’étape 1</a>
 <?php
 break;
 
