@@ -58,14 +58,38 @@ créer ce fichier. Attention donc aux droits d’accès. <br>
 break;
 
 
-case 1:
+case 1: ?>
+<h1>Étape 1</h1>
+<?php
 $db = new MyDB();
-$db->exec('CREATE TABLE foo (bar STRING)');
-$db->exec("INSERT INTO foo (bar) VALUES ('Tout s’est bien passé.')");
-$result = $db->query('SELECT bar FROM foo');
-echo $result->fetchArray()['bar'] . '<br>';
-echo "SQLite version: " . $db->version()['versionString'];
-$db->close();
+$db->exec('CREATE TABLE users (nom STRING, pass STRING, prez STRING)');
+$db->exec("INSERT INTO users (nom, pass, prez) VALUES ('Mme Test', 'mouton', 'Je suis madame Test.')");
+$result = $db->query('SELECT prez FROM users');
+if ($result->fetchArray()['prez'] == 'Je suis madame Test.') { ?>
+Bravo, tout s’est bien passé. <br>
+<br>
+Si vous rafraîchissez la page, vous devriez voir une erreur. Laquelle et
+pourquoi ? <br>
+<form method ="post" action ="#">
+    <input type="radio" name="reponse" value="x" id="1">
+        <label for="1">Je n’ai plus Internet.</label><br>
+    <input type="radio" name="reponse" value="x" id="2">
+        <label for="2">SQLite doit être mieux configuré.</label><br>
+    <input type="radio" name="reponse" value="v" id="3">
+        <label for="3">Le serveur veut recréer la base de données.</label><br>
+    <input type="radio" name="reponse" value="x" id="4">
+        <label for="4">C’est une erreur qui ne veut rien dire.</label><br>
+    <input type="submit" value="Valider pour passer à l’étape 2">
+</form>
+<?php
+if (isset($_POST['reponse'])  && $_POST['reponse'] == 'v') { ?>
+<a href="?etape=2">Bien, vous pouvez passer à l’étape 2</a>
+<?php
+}
+} else { ?>
+Raté. Veuillez lire et comprendre l’erreur ci-dessus, rectifier et rafraîchir la page.
+<?php
+}
 break;
 
 // Fin du case géant.
