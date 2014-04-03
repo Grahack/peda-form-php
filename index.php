@@ -132,5 +132,14 @@ onload = function () {document.getElementById("nom").focus();}
 <?php
 break;
 
+
+default: ?>
+<h1>Fin</h1>
+Si vous avez des idées pour améliorer cette activité, tant en qualité qu’en
+quantité, vous pouvez contribuer
+<a href="https://github.com/Grahack/peda-form-php">au projet</a>. <br>
+<br>
+Et encore bravo.
+<?php
 // Fin du case géant.
 }
