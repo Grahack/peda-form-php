@@ -111,15 +111,23 @@ if (isset($_POST['Valider'])) {
 ?>
 <h1>Étape 2</h1>
 Passons aux choses sérieuses. Voici une liste des utilisateurs du site :
-<ul>
+<ol>
 <?php
+$nbre_users = 0;
 $result = $db->query('SELECT nom, desc FROM users');
 while ($row = $result->fetchArray(SQLITE3_ASSOC)) {
+    $nbre_users++;
     echo '    <li>' . $row['nom'] . ' : ' . $row['desc'] . '</li>'."\n";
 }
 ?>
-</ul>
-Entrer des utilisateurs en utilisant le formulaire suivant :
+</ol>
+<?php
+if ($nbre_users < 10) { ?>
+Votre <strong>deuxième mission</strong> consiste à faire du mal à la base de
+données ou au site, simplement en ajoutant des utilisateurs. <br>
+Il y a plusieurs façons différentes de le faire, essayez d’en trouver un
+maximum. Vous avez 9 essais. <br>
+Pour cela, vous utiliserez <strong>uniquement le formulaire suivant</strong> :
 <form method ="post" action ="#">
     <label for="nom">Nom :</label><input type="text" name="nom" id="nom"><br>
     <label for="mdp">MDP :</label><input type="password" name="mdp" id="mdp"><br>
@@ -129,7 +137,24 @@ Entrer des utilisateurs en utilisant le formulaire suivant :
 <script type="text/javascript">
 onload = function () {document.getElementById("nom").focus();}
 </script>
-<?php
+<?php } else { ?>
+Votre action malfaisante a été détectée. Qu’avez-vous réussi à faire ? <br>
+Après un échange avec les autres, plusieurs possibilités :
+<ul>
+    <li>Personne n’a réussi quoi que ce soit. Il est temps d’aller demander de
+        l’aide à Internet.</li>
+    <li>Un être malfaisant a réussi quelque chose. <br>
+        Sans dire comment, il vous dira ce qu’il a réussi à faire, et vous
+        essaierez d’atteindre le même résultat.</li>
+</ul>
+Comment réinitialiser la base de données pour retenter cette mission ? <br>
+<br>
+Si vous avez trouvé <strong>au moins deux façons de faire du mal</strong>, il
+vous sera facile de passer à l’étape trois en trichant, <br>
+puisque vous êtes un être malfaisant.<br>
+Mais avant, réinitialisez la base de données, et notez les chaînes de caractères
+malfaisantes.
+<?php }
 break;
 
 
