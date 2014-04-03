@@ -13,8 +13,8 @@ Certaines mauvaises pratiques ont été utilisées dans un but de simplification
 class MyDB extends SQLite3 {
     function __construct() {
         // Un moyen d’explorer l’API de sqlite-php:
-        // var_dump(get_class_vars(SQLite3));
-        // var_dump(get_class_methods(SQLite3));
+        // var_dump(get_class_vars('SQLite3'));
+        // var_dump(get_class_methods('SQLite3'));
         // echo "SQLite version: " . $db->version()['versionString'];
         $db_file = 'donnees.db';
         if (!file_exists($db_file)) touch($db_file);
