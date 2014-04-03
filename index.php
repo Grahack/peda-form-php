@@ -84,7 +84,9 @@ pourquoi ? <br>
     <input type="radio" name="reponse" value="v" id="3">
         <label for="3">Le serveur veut recréer la base de données.</label><br>
     <input type="radio" name="reponse" value="x" id="4">
-        <label for="4">C’est une erreur qui ne veut rien dire.</label><br>
+        <label for="4">Les droits d’accès sont mal configurés.</label><br>
+    <input type="radio" name="reponse" value="x" id="5">
+        <label for="5">C’est une erreur qui ne veut rien dire.</label><br>
     <input type="submit" value="Valider pour passer à l’étape 2">
 </form>
 <?php
