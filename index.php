@@ -1,3 +1,9 @@
+<!-- WARNING:
+
+Le code PHP et HTML de ce fichier ne peut en aucun cas servir en production.
+Certaines mauvaises pratiques ont été utilisées dans un but de simplification.
+
+-->
 <meta charset="utf-8">
 <link href="style.css" rel="stylesheet"/>
 <?php
