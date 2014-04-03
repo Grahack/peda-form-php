@@ -283,6 +283,30 @@ if (isset($_POST['Connexion'])) {
 break;
 
 
+case 6: ?>
+<h1>Étape 6</h1>
+La <strong>sixième mission</strong> est identique à la mission 5. <br>
+<br>Vous devez maintenant craquer des mots de passe plus difficiles,
+tout en mesurant toujours le temps que cela prend. <br>
+<br>
+Vous pouvez vous servir de l’étape 3 pour ajouter des utilisateurs.
+<?php
+break;
+
+
+case 7: ?>
+<h1>Étape 7</h1>
+La <strong>septième mission</strong> est bienfaisante. <br>
+<br>
+Elle consiste à réutiliser le code écrit lors de la mission 3 en y ajoutant
+une fonctionnalité essentielle dans un système d’authentification : le
+stockage des mots de passe sous forme de condensat. <br>
+<br>
+Bon courage !
+<?php
+break;
+
+
 default: ?>
 <h1>Fin</h1>
 Si vous avez des idées pour améliorer cette activité, tant en qualité qu’en
