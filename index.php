@@ -18,7 +18,7 @@ class MyDB extends SQLite3 {
 }
 
 // Étape zéro par défaut:
-if (count($_GET) == 0) $_GET['etape'] = 0;
+if (!isset($_GET['etape'])) $_GET['etape'] = 0;
 // Les pages, selon l’étape en cours:
 switch ((int)$_GET['etape']) {
 case 0: ?>
@@ -30,7 +30,7 @@ Vous serez guidés d’étape en étape à l’aide d’explications et de liens
 <br>
 Vous êtes actuellement à l’<strong>étape zéro</strong>, étape par défaut
 configurée à l’aide de la ligne :
-<pre><code>if (count($_GET) == 0) $_GET['etape'] = 0;</code></pre>
+<pre><code>if (!isset($_GET['etape'])) $_GET['etape'] = 0;</code></pre>
 À tout moment, vous pourrez bidouiller l'URL, mais ce n'est pas le but. <br>
 Si par hasard un vrai problème de conception apparaissait, il faudra le
 signaler, bidouiller, et proposer une solution. <br>
