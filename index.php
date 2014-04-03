@@ -158,6 +158,49 @@ malfaisantes.
 break;
 
 
+case 3:
+$db = new MyDB();
+if (isset($_POST['Valider'])) {
+    $db->exec("INSERT INTO users (nom, mdp, desc) VALUES ('".
+        $_POST['nom']."', '".$_POST['mdp']."', '".$_POST['desc']."')");
+}
+?>
+<h1>Étape 3</h1>
+Voici encore une liste des utilisateurs du site :
+<ol>
+<?php
+$result = $db->query('SELECT nom, desc FROM users');
+while ($row = $result->fetchArray(SQLITE3_ASSOC)) {
+    echo '    <li>' . $row['nom'] . ' : ' . $row['desc'] . '</li>'."\n";
+}
+?>
+</ol>
+Votre <strong>troisième mission</strong> consiste à modifier le code de l’étape
+2 afin de le protéger des êtres malfaisants. <br>
+Le code de l’étape 2 a donc été copié et collé dans l’étape 3. <br>
+Seul le titre et cet entête ont été changés, et le nombre de tentatives n’est
+plus limité. <br>
+<br>
+Il vous faut donc, à l’aide d’un éditeur, <strong>modifier le code du fichier
+.php</strong>. <br>
+Vous ferez attention à ne <strong>modifier que le code de l’étape 3</strong>. <br>
+<br>
+Une fois satisfaite, vous demanderez à quelqu’un de vérifier, puis passerez à
+<a href="?etape=4">l’étape 4</a>. <br>
+<br>
+<form method ="post" action ="#">
+    <label for="nom">Nom :</label><input type="text" name="nom" id="nom"><br>
+    <label for="mdp">MDP :</label><input type="password" name="mdp" id="mdp"><br>
+    <label for="nom">Desc :</label><input type="text" name="desc" id="desc"><br>
+    <input type="submit" name="Valider" value="Valider">
+</form>
+<script type="text/javascript">
+onload = function () {document.getElementById("nom").focus();}
+</script>
+<?php
+break;
+
+
 default: ?>
 <h1>Fin</h1>
 Si vous avez des idées pour améliorer cette activité, tant en qualité qu’en
