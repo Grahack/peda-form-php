@@ -241,7 +241,10 @@ if (isset($_POST['Connexion'])) {
             Bof, le nom d’utilisateur n’est pas très intéressant.
         <?php
         }
-    }
+    } else { ?>
+		Le nom d’utilisateur et le mot de passe ne correspondent pas.
+	<?php
+	}
 }
 break;
 
