@@ -128,7 +128,12 @@ Votre <strong>deuxième mission</strong> consiste à faire du mal à la base de
 données ou au site, simplement en ajoutant des utilisateurs. <br>
 Il y a plusieurs façons différentes de le faire, essayez d’en trouver un
 maximum. Vous avez 9 essais. <br>
-Pour cela, vous utiliserez <strong>uniquement le formulaire suivant</strong> :
+En jetant un œil au code PHP au tout début de cette étape, vous verriez :
+<pre><code>$db->exec("INSERT INTO users (nom, mdp, desc) VALUES ('".
+          $_POST['nom']."', '".$_POST['mdp']."', '".$_POST['desc']."')");</code></pre>
+<code>echo</code>er la requête finale pourrait vous aider. Cela ressemblerait à : <br>
+<pre><code>INSERT INTO users (nom, mdp, desc) VALUES ('X', 'Y', 'Z')</code></pre>
+Pour cela, vous utiliserez <strong>uniquement le formulaire suivant</strong> : <br>
 <form method ="post" action ="#">
     <label for="nom">Nom :</label><input type="text" name="nom" id="nom"><br>
     <label for="mdp">MDP :</label><input type="password" name="mdp" id="mdp"><br>
