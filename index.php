@@ -72,7 +72,8 @@ if ($db->exec('CREATE TABLE users (nom STRING, mdp STRING, desc STRING)')) {
     $db->exec("INSERT INTO users (nom, mdp, desc) VALUES ('Mme Test', 'mouton', 'Je suis madame Test.')");
 }
 $result = $db->query('SELECT desc FROM users');
-if ($result->fetchArray()['desc'] == 'Je suis madame Test.') { ?>
+$result_array = $result->fetchArray();
+if ($result_array['desc'] == 'Je suis madame Test.') { ?>
 Bravo, tout s’est bien passé. <br>
 <br>
 Si vous rafraîchissez la page, vous devriez voir une erreur. Laquelle et
