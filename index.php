@@ -308,10 +308,38 @@ case 7: ?>
 La <strong>septième mission</strong> est bienfaisante. <br>
 <br>
 Elle consiste à réutiliser le code écrit lors de la mission 3 en y ajoutant
-une fonctionnalité essentielle dans un système d’authentification : le
-stockage des mots de passe sous forme de condensat. <br>
+une fonctionnalité essentielle dans un système d’authentification : <br>
+le stockage des mots de passe <strong>sous forme de condensat</strong>. <br>
 <br>
-Bon courage !
+Implémentation naïve :
+<pre><code>Lors de la création…
+
+Tapé  dans la  page: {nom: Mme Test, mdp: mouton}
+Stocké dans la base: {nom: Mme Test, mdp: mouton}
+
+Lors de l’authentification…
+
+Tapé dans la page: {nom: Mme Test, mdp: mouton}
+Vérification:      (nom == nom_DB) ET (mdp == mdp_DB)
+</code></pre>
+<br>
+Une autre implémentation :
+<pre><code>Lors de la création…
+
+Tapé  dans la  page: {nom: Mme Test, mdp: mouton}
+Stocké dans la base: {nom: Mme Test, hash_mdp: hash(mouton + graine)}
+
+Lors de l’authentification…
+
+Tapé dans la page: {nom: Mme Test, mdp: mouton}
+Vérification:      (nom == nom_DB) ET (hash(mdp + graine) == hash_mdp_DB)
+</code></pre>
+Bon courage ! <br>
+<br>
+Pour votre culture, il peut être intéressant de voir comment ces fonctionnalités
+sont codées dans votre cadriciel ou CMS préféré, qu’il soit écrit en PHP ou
+non. <br>
+<br>
 <?php
 break;
 
