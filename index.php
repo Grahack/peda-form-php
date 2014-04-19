@@ -263,6 +263,10 @@ La <strong>cinquième mission</strong> est encore malfaisante. <br>
 Elle consiste à faire tourner un logiciel de force brute contre le formulaire
 d’authentification pour voir en combien de temps le mot de passe de Mme Test
 est découvert. <br>
+Il en existe de très perfectionnés, comme
+<a href="https://code.google.com/p/patator/">Patator</a>, mais le fichier
+`brute.py` du <a href="https://github.com/Grahack/peda-form-php">dépôt</a>
+fera l’affaire. <br>
 <br>
 <form method ="post" action ="#">
     <label for="nom">Nom :</label><input type="text" name="nom" id="nom"><br>
