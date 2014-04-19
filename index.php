@@ -1,4 +1,6 @@
-<!-- WARNING:
+<!-- Ce fichier est maintenu ici: https://github.com/Grahack/peda-form-php
+
+WARNING:
 
 Le code PHP et HTML de ce fichier ne peut en aucun cas servir en production.
 Certaines mauvaises pratiques ont été utilisées dans un but de simplification.
